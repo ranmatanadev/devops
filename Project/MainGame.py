@@ -1,5 +1,5 @@
 from Live import welcome, load_game
 
 
-print(welcome(""))
+print(welcome("Ran"))
 load_game()
