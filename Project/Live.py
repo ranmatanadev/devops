@@ -2,6 +2,7 @@ from Colors import bcolors
 from CurrencyRouletteGame import load_roulette_game
 from GuessGame import load_guess_game
 from MemoryGame import load_memory_game
+from Score import add_score
 
 
 def welcome(name=""):
@@ -15,9 +16,9 @@ def welcome(name=""):
                 return sentence.replace("<name>", name)+"\n"
 
 
-def check_result(status):
+def check_result(level, status):
     if (status == True):
-        print("You Won!")
+        add_score(level)
     else:
         print("You Lose!")
 
@@ -49,10 +50,12 @@ def load_game():
 
     match choose_game:
         case 1:
-            check_result(load_guess_game(choose_difficulty))
+            check_result(choose_difficulty,
+                         load_memory_game(choose_difficulty))
         case 2:
-            check_result(load_memory_game(choose_difficulty))
+            check_result(choose_difficulty, load_guess_game(choose_difficulty))
         case 3:
-            check_result(load_roulette_game(choose_difficulty))
+            check_result(choose_difficulty,
+                         load_roulette_game(choose_difficulty))
         case _:
             return 0

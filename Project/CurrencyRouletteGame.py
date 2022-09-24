@@ -14,7 +14,6 @@ def get_money_interval(amount):
     if (status_code == 200):
         result = response.text
         return json.loads(result)["result"]
-        # return (json_obj-(5-amount), json_obj+(5-amount))[0]
     else:
         return False
 

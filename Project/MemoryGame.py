@@ -1,14 +1,7 @@
 import random
 import time
 from Colors import bcolors
-import os
-
-
-def clearConsole():
-    command = 'clear'
-    if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
-        command = 'cls'
-    os.system(command)
+from Utils import Screen_cleaner
 
 
 def generate_sequence(level):
@@ -18,7 +11,7 @@ def generate_sequence(level):
 
     print(f"The number is:\n{rand_list}")
     time.sleep(0.7)
-    clearConsole()
+    Screen_cleaner()
     return rand_list
 
 
